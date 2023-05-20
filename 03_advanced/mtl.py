@@ -12,14 +12,15 @@ def assign_material_name():
         materials = cmds.ls(cmds.listConnections(shadeEng ), materials = True)
         cmds.setAttr(materials, material_name)
 
-#FUNCTION to Create Window 
-def material_organizer():
-    ui_title = "material_organizer"
+
+class Window(object):
+    def __init__(self):
+    self.ui_title = "material_organizer"
     if cmds.window(ui_title, exists=True):
         print('CLOSE duplicate window')
         cmds.deleteUI(ui_title)
         
-    window = cmds.window(ui_title, title="Material Organizer")
+    self.window = cmds.window(ui_title, title="Material Organizer")
     
     cmds.columnLayout(adjustableColumn=True)
     
